@@ -247,17 +247,11 @@ def gameLoop():
         score((snake_length - START_LENGTH) // GROWTH_RATE)
         pygame.display.update()
 
-        intersects_x = (
-            lead_x > apple_x
-            and lead_x < apple_x + APPLE_SIZE
-            or lead_x + BLOCK_SIZE > apple_x
-            and lead_x + BLOCK_SIZE < apple_x + APPLE_SIZE
+        intersects_x = (apple_x <= lead_x <= apple_x + APPLE_SIZE) or (
+            apple_x <= lead_x + BLOCK_SIZE <= apple_x + APPLE_SIZE
         )
-        intersects_y = (
-            lead_y > apple_y
-            and lead_y < apple_y + APPLE_SIZE
-            or lead_y + BLOCK_SIZE > apple_y
-            and lead_y + BLOCK_SIZE < apple_y + APPLE_SIZE
+        intersects_y = (apple_y <= lead_y <= apple_y + APPLE_SIZE) or (
+            apple_y <= lead_y + BLOCK_SIZE < apple_y + APPLE_SIZE
         )
 
         if intersects_x and intersects_y:
