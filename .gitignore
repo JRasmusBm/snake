@@ -1,1 +1,6 @@
 venv
+build
+dist
+snake.spec
+__pycache__
+**/*.pyc
